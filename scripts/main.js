@@ -1,8 +1,20 @@
-import { useBusinessData } from './BusinessProvider.js';
-import { businessList } from './BusinessList.js';
+import {
+	useBusinessData,
+	businessLocationFilter,
+	businessManufacturingFilter,
+} from './BusinessProvider.js';
+import {
+	businessList,
+	businessListState,
+	businessListManu,
+} from './BusinessList.js';
 
 console.log('main.js connected');
 
-let copyOfBusinessData = useBusinessData();
+//let copyOfBusinessData = useBusinessData();
 
 businessList();
+
+businessListState();
+
+businessListManu();
