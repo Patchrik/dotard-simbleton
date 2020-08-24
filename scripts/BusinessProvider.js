@@ -114,3 +114,29 @@ const businessDataArray = [
 export const useBusinessData = () => {
 	return businessDataArray.slice();
 };
+
+// Built to allow the user to pass in a state code of their choice but by default will create and return an array of companies in NY
+
+export const businessLocationFilter = (businessStateCode = 'NY') => {
+	const filteredHomeStateArray = businessDataArray.filter(function (
+		businessObj
+	) {
+		if (businessObj.addressStateCode === businessStateCode) {
+			return true;
+		}
+	});
+	return filteredHomeStateArray;
+};
+
+// Built to allow the user to pass in a state code of their choice but by default will create and return an array of companies in NY
+
+export const businessManufacturingFilter = () => {
+	const filteredManufactorArray = businessDataArray.filter(function (
+		businessObj
+	) {
+		if (businessObj.companyIndustry === 'Manufacturing') {
+			return true;
+		}
+	});
+	return filteredManufactorArray;
+};
