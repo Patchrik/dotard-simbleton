@@ -10,3 +10,11 @@ export const BusinessHTML = (BusinessObject) => {
         </section>
     `;
 };
+
+export const agentsHTML = (agentObj) => {
+	return `
+        <h2 class="agent_name">${agentObj.fullName}</h2>
+        <h3 class="agent_company">${agentObj.company}</h3>
+        <h3 class="agent_phone">${agentObj.phoneNumber}</h3>
+    `;
+};

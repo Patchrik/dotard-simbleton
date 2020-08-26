@@ -140,3 +140,19 @@ export const businessManufacturingFilter = () => {
 	});
 	return filteredManufactorArray;
 };
+
+export const agentsListDataArray = businessDataArray.map((businessObj) => {
+	return businessObj.purchasingAgent;
+});
+
+export const createFormattedAgentsArray = () => {
+	let formattedAgentsArray = [];
+	businessDataArray.forEach((element) => {
+		formattedAgentsArray.push({
+			fullName: `${element.purchasingAgent.nameFirst} ${element.purchasingAgent.nameLast}`,
+			company: `${element.companyName}`,
+			phoneNumber: `${element.phoneWork}`,
+		});
+	});
+	return formattedAgentsArray;
+};

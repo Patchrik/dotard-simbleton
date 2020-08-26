@@ -2,8 +2,10 @@ import {
 	useBusinessData,
 	businessLocationFilter,
 	businessManufacturingFilter,
+	agentsListDataArray,
+	createFormattedAgentsArray,
 } from './BusinessProvider.js';
-import { BusinessHTML } from './Business.js';
+import { BusinessHTML, agentsHTML } from './Business.js';
 
 const contentTarget = document.querySelector('.business');
 
@@ -12,6 +14,8 @@ const nyContentTarget = document.querySelector('.businessList--newYork');
 const manuContentTarget = document.querySelector(
 	'.businessList--manufacturing'
 );
+
+const agentsContentTarget = document.querySelector('.agents');
 
 export const businessList = () => {
 	const businessArray = useBusinessData();
@@ -37,5 +41,14 @@ export const businessListManu = () => {
 
 	businessArray.forEach((businessObject) => {
 		manuContentTarget.innerHTML += BusinessHTML(businessObject);
+	});
+};
+
+export const agentsList = () => {
+	const copyOfAgentsArray = createFormattedAgentsArray();
+	agentsContentTarget.innerHTML = '<h1>Sales Agents</h1>';
+
+	copyOfAgentsArray.forEach((agentObject) => {
+		agentsContentTarget.innerHTML += agentsHTML(agentObject);
 	});
 };
